@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+     <!--<script src = "./js/jquery-3.2.1.min.js"></script>-->
+    <link rel="stylesheet" href="./css/app.css">
+    <script src="./js/app.js"></script>
+</head>
+<body>
+    <div class="AppWrap">
+        <div class="Login">
+            <h1>My SNS Service</h1>
+            <br>
+            <h3>로그인 해 주세요</h3>
+            <p>ID</p>
+            <input type="text" class="loginTxtId" maxlength="50">
+            <p>PW</p>
+            <input type="password" class="loginTxtPw" maxlength="50">
+            <br><br>
+            <button class="loginBtnLogin">로그인</button>
+            <button class="loginBtnJoin">회원가입</button>
+
+            <!--h1+br+h3+(p+input.loginTxtId[type=text maxlength=50]+p+input.loginTxtPw[type=password maxlength=50])+(br*2)+(button.loginBtnLogin+button.loginBtnJoin)-->
+        </div>
+
+        <div class="Join">
+            <h1>My Sns Services</h1>
+            <br>
+            <h3>회원가입</h3>
+
+            <p>ID</p>
+            <input type="text" class="joinTxtId" maxlength="50">
+            <p>PW</p>
+            <input type="password" class="joinTxtPw" maxlength="50">
+            <p>PWC</p> 
+            <input type="password" class="joinTxtPwc" maxlength="50">
+            <br><br>
+
+            <button class="joinBtnJoin">가입하기</button>
+            <button class="joinBtnCancel">가입취소</button>
+        </div>
+
+        <div class="Main">
+            <div class="Navi">
+                <div class="NaviPadding">
+                    <h2>My SNS Service</h2>
+                    <p>Hello,</p>
+                    <!--<b>User</b>-->
+                    <button class="mainBtnWrite AppBtnBlue">Write</button>
+                    <button class="mainBtnLogout AppBtnRed">Logout</button>
+                </div>
+             </div>
+             <div class="HeightPadding"></div>
+             <div class="Items">
+                 <!--<div class="ItemText">
+                    <h4>글 제목입니다</h4>
+                    <h6>작성시간: 2014-11-19(1:25)</h6>
+                    <p>Hello I Writeng This text Late time</p>
+                    <div class="ItemButtons">
+                        <button class="mainBtnDel AppBtnRed">삭제하기</button>
+                    </div>
+                    <div class="Comment">
+                        <input type="text" class="ItemTxtComment" placeholder="댓글입력...">
+                        <button class="AppBtnBlue">댓글 달기</button>
+                        <div class="Comments">
+                            <div class="CommentItem">
+                                <h4>User1</h4>
+                                <p>This is Reple</p>
+                                <button class="AppBtnRed">Delete</button>
+                            </div>
+                        </div>
+                        <div class="Comments">
+                            <div class="CommentItem">
+                                <h4>User2</h4>
+                                <p>This is Reple</p>
+                                <button class="AppBtnRed">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    <div class="Write">
+        <div class="Navi">
+            <div class="NaviPadding">
+                <h2>My SNS Service</h2>
+                <p>Hello <b>User</b></p>
+                <button class="mainBtnWrite AppBtnBlue">글쓰기</button>
+                <button class="mainBtnLogout AppBtnRed">로그아웃</button>
+            </div>
+        </div>
+        <div class="HeightPadding"></div>
+        <p>Title</p>
+        <input type="text" class="writeTxtSubject" placeholder="InputTitle" maxlength="50">
+        <p>Content</p>
+        <textarea name="" id="" cols="30" rows="10" class="writeTxtContent" placeholder="InputContent"></textarea>
+        <div class="ItemButtons">
+            <button class="writeBtnWrite AppBtnBlue">Submit</button>
+            <button class="writeBtnCancel AppBtnRed">Cancel</button>
+        </div>
+    </div>
+</body>
+</html>

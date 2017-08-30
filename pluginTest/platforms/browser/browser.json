@@ -1,0 +1,32 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "kr.yjc.wd3"
+        },
+        "kr.yjc.wdb": {
+            "PACKAGE_NAME": "kr.yjc.wd3"
+        }
+    },
+    "dependent_plugins": {},
+    "modules": [
+        {
+            "file": "plugins/kr.yjc.wdb/www/TestPlugin.js",
+            "id": "kr.yjc.wdb.test",
+            "pluginId": "kr.yjc.wdb",
+            "clobbers": [
+                "test"
+            ]
+        }
+    ],
+    "plugin_metadata": {
+        "cordova-plugin-whitelist": "1.3.2",
+        "kr.yjc.wdb": "0.0.1"
+    }
+}

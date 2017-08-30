@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Test</title>
+    <style></style>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        function init(){
+            setTimeout(function(){
+                $.mobile.changePage("#intro1");
+            },1000);
+        }
+
+        var userdata;
+        var passwordData;
+        var isdataType = 1;//0-xml,1-json
+
+        $("#intro1 #loginbutton").click(function(){
+            userdata = $("#username").val();
+            passwordData = $("#passwrd").val();
+            if(isdataType==0){
+                $.ajax({
+                    url:"loginXML.txt",
+                    type:"get",
+                    dataType:"xml",
+                    async:true,
+                    success:function(data){
+                        var id = data.getElementsByTagName("id")[0].childNodes[0].nodeValue;
+                        var pw = data.getElementsByTagName("pw")[0].childNodes[0].nodeValue;
+                        if(id!=userdata || pw!=passwordData)
+                            alert("loginFailure!");
+                        else
+                            location.href="login.html?pid="+id+"&ppw="+pw;
+                    }, error:function(error){
+
+                    }
+                });
+            } else {
+                $.ajax({
+                    url:"loginjJson.txt",
+                    type:"get",
+                    dataType:"json",
+                    async:true,
+                    success:function(data){
+                        var id = data.results[0].id;
+                        var pw = data.results[0].pw;
+                        if(id!=userdata || pw!=passwordData)
+                            alert("loginFailure!");
+                        else
+                            location.href="login.html?pid="+id+"&ppw="+pw;
+                    },
+                    error:function(error){
+                        
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body onload = "init();">
+    <div data-role="page" id="intro">
+        <div data-role="content">
+            <img width="320" src="http://blog.files.naver.net/20121221_23/s25k6_135601387414eOe1y_JPEG/%BF%B5%C1%F8.JPG/" alt="noimage">
+        </div>
+    </div>
+
+    <div data-role="page" id="intro1">
+        <div data-role="content">
+            <label>user</label>
+            <div input="text" id="username" name="username"></div>
+            <label>password</label>
+            <div input="password" id="passwrd" name="passwrd"></div>
+            <a data-role="button" href="#" id="loginbutton">login</a>
+        </div>
+    </div>
+</body>
+</html>

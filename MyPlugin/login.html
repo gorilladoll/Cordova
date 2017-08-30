@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="jquery.mobile/jquery.mobile-1.4.5.min.css">
+    <script src="jquery.mobile/jquery-1.11.2.min.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="./plugins/kr.yjc.wdb/www.TestPlugin.js"></script>
+</head>
+<script>
+    var vars = [].hash;
+    $(document).bind("pagebeforeshow",
+        function(event, data){
+            var hashes = window.location.href.slice(window.location.href.indexOf("?")+1).split("&");
+            
+            for(var i = 0; i<hashes.length; i++){
+                hash = hashes[i].split("=");
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            $("#welcome").html("id("+vars["pid"]+")님 환영합니다.");
+        }
+    );
+
+    function clickPic(){
+        window.beep(2000,function(){ alert("beep성공"); });
+    }
+
+    function clickWelcome(){
+        // window.echo(
+        //     "넌 누구냐!",
+        //     function(echoValue){
+        //         alert(echoValue == "반환 : 넌 누구냐!");
+        //     }
+        // );
+        //window.getMessage();
+        window.runJavaScriptFunction("print_message");
+        //runEcho();
+
+        function runEcho(){
+            var pluginEcho = new SFPluginEcho();
+            pluginEcho.echo("웹에서 보낸 메세지를 AlertDialog를 이용해서 보기");
+            pluginEcho.getMessage();
+            pluginEcho.runJavaScriptFunction("print_message");
+        }
+    }
+</script>
+<body>
+    <div data-role="page" id="intro" data-add-back-btn="true" data-dom-cache="true">    
+        <div data-role="content">
+            <img width="320" onclick="clickPic();" id="imgtag" arc="">
+            <br/>
+            <span id="welcome" onclick="clickWelcome();"></span>
+        </div>
+    </div>
+</body>
+</html>

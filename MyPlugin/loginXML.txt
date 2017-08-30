@@ -1,0 +1,5 @@
+<?xml varsion="1.0" encoding="UTF-8"?>
+<results>
+    <id>test1</id>
+    <pw>t1234</pw>
+</results>
